@@ -1,17 +1,21 @@
 package tmallssm.mapper;
 
-import tmallssm.pojo.Category;
-import tmallssm.util.Page;
-
 import java.util.List;
+import tmallssm.pojo.Category;
+import tmallssm.pojo.CategoryExample;
 
 public interface CategoryMapper {
-//    List<Category> list(Page page);
-//    int total();
-    //SSM中使用PageHelper代替之前的方法
-    List<Category> list();
-    void add(Category category);
-    void delete(int id);
-    Category get(int id);
-    void update(Category category);
+    int deleteByPrimaryKey(Integer id);
+
+    int insert(Category record);
+
+    int insertSelective(Category record);
+
+    List<Category> selectByExample(CategoryExample example);
+
+    Category selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(Category record);
+
+    int updateByPrimaryKey(Category record);
 }
