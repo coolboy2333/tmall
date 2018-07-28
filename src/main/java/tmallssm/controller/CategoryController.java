@@ -1,5 +1,7 @@
 package tmallssm.controller;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.web.multipart.MultipartFile;
 import tmallssm.pojo.Category;
 import tmallssm.service.CategoryService;
@@ -24,8 +26,11 @@ public class CategoryController {
     CategoryService categoryService;
     @RequestMapping("admin_category_list")
     public String list(Model model, Page page){
-        List<Category> cs=categoryService.list(page);
-        int total=categoryService.total();
+//        List<Category> cs=categoryService.list(page);
+//        int total=categoryService.total();
+        PageHelper.offsetPage(page.getStart(),page.getCount());
+        List<Category> cs=categoryService.list();
+        int total=(int) new PageInfo<>(cs).getTotal();
         page.setTotal(total);
         model.addAttribute("cs",cs);
         model.addAttribute("page",page);//
