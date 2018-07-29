@@ -13,7 +13,7 @@
 <nav>
     <ul class="pagination">
         <li <c:if test="${!page.hasPrevious}">class="disabled"</c:if>>
-            <a href="?start=0" aria-label="Previous">
+            <a href="?start=0${page.param}" aria-label="Previous">
                 <span aria-hidden="true"><<</span>
             </a>
         </li>
