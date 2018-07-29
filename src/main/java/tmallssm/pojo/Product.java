@@ -19,6 +19,16 @@ public class Product {
 
     private Date createDate;
 
+    private Category category;
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
     public Integer getId() {
         return id;
     }
