@@ -49,7 +49,7 @@ public class PropertyValueController {
     public String update(PropertyValue pv){
         //因为post传了{"value":value,"id":pvid},
         //这儿接收value和id
-        System.out.println(pv.getId()+","+pv.getValue());
+        //System.out.println(pv.getId()+","+pv.getValue());
         propertyValueService.update(pv);
         return "success";
 
