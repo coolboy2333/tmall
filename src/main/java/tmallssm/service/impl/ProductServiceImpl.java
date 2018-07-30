@@ -3,10 +3,13 @@ package tmallssm.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tmallssm.mapper.CategoryMapper;
+import tmallssm.mapper.ProductImageMapper;
 import tmallssm.mapper.ProductMapper;
 import tmallssm.pojo.Category;
 import tmallssm.pojo.Product;
 import tmallssm.pojo.ProductExample;
+import tmallssm.pojo.ProductImage;
+import tmallssm.service.ProductImageService;
 import tmallssm.service.ProductService;
 
 import java.util.List;
@@ -17,6 +20,8 @@ public class ProductServiceImpl implements ProductService {
     ProductMapper productMapper;
     @Autowired
     CategoryMapper categoryMapper;
+    @Autowired
+    ProductImageService productImageService;
 
     @Override
     public void add(Product product) {
@@ -56,5 +61,18 @@ public class ProductServiceImpl implements ProductService {
         return result;
     }
 
-
+    @Override
+    public void setFirstProductImage(Product p) {
+        List<ProductImage> pis=productImageService.list(p.getId(),productImageService.type_single);
+        if (!pis.isEmpty()){
+            ProductImage pi=pis.get(0);
+            p.setFirstProductImage(pi);
+        }
+    }
+    @Override
+    public void setFirstProductImage(List<Product> ps){
+        for (Product p:ps){
+            setFirstProductImage(p);
+        }
+    }
 }

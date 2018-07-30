@@ -19,7 +19,18 @@ public class Product {
 
     private Date createDate;
 
+    /*-------------非数据库字段----------------*/
     private Category category;
+
+    private ProductImage firstProductImage;
+
+    public void setFirstProductImage(ProductImage firstProductImage) {
+        this.firstProductImage = firstProductImage;
+    }
+
+    public ProductImage getFirstProductImage() {
+        return firstProductImage;
+    }
 
     public void setCategory(Category category) {
         this.category = category;
@@ -28,7 +39,7 @@ public class Product {
     public Category getCategory() {
         return category;
     }
-
+    /*---------非数据库字段------------*/
     public Integer getId() {
         return id;
     }
