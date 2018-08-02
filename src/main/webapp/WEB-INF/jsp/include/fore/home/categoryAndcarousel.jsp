@@ -63,9 +63,10 @@
 
 <div class="categoryWithCarousel">
 
-    <div class="headbar show1">
-        <div class="head ">
-
+    <div class="headbar">
+        <%--<div class="head ">--%>
+            <div style="display: inline-block;width: 200px;background-color: #C60A0A;height:
+            36px;line-height: 36px;font-size: 16px;font-weight: bold;color: white;">
             <span style="margin-left:10px" class="glyphicon glyphicon-th-list"></span>
             <span style="margin-left:10px" >商品分类</span>
 
