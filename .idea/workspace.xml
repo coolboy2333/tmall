@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8f9dcc07-fe40-490d-9dee-f832771b6dac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java" afterPath="$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tmallssm/service/impl/ProductServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/tmallssm/service/impl/ProductServiceImpl.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -833,7 +831,7 @@
       <workItem from="1538018628237" duration="6302000" />
       <workItem from="1539186159831" duration="11239000" />
       <workItem from="1542458961437" duration="10516000" />
-      <workItem from="1542899075087" duration="23419000" />
+      <workItem from="1542899075087" duration="23522000" />
     </task>
     <task id="LOCAL-00001" summary="分类管理">
       <created>1532782134680</created>
@@ -933,11 +931,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545200823309</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="增加产品分类页，在分类页面可以按价格、人气等条件查询">
+      <created>1545205224158</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1545205224158</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201784000" />
+    <option name="totallyTimeSpent" value="201887000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
@@ -996,7 +1001,8 @@
     <MESSAGE value="天猫首页样式调整" />
     <MESSAGE value="增加产品页，展示产品详情" />
     <MESSAGE value="模态登录，在用户添加商品到购物车前检查用户是否登录" />
-    <option name="LAST_COMMIT_MESSAGE" value="模态登录，在用户添加商品到购物车前检查用户是否登录" />
+    <MESSAGE value="增加产品分类页，在分类页面可以按价格、人气等条件查询" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加产品分类页，在分类页面可以按价格、人气等条件查询" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
