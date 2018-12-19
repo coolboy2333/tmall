@@ -14,7 +14,7 @@
 
     <form action="foresearch" method="post" >
         <div class="simpleSearchDiv pull-right">
-            <input type="text" placeholder="平衡车 原汁机" name="keyword">
+            <input type="text" value="${param.keyword}" placeholder="平衡车 原汁机" name="keyword">
             <button class="searchButton" type="submit">搜天猫</button>
             <div class="searchBelow">
                 <c:forEach items="${cs}" var="c" varStatus="st">

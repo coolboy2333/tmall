@@ -135,4 +135,16 @@ public class ProductServiceImpl implements ProductService {
             setSaleAndReviewNumber(p);
         }
     }
+
+    //模糊查询产品
+    @Override
+    public List<Product> search(String keyword){
+        ProductExample productExample=new ProductExample();
+        productExample.createCriteria().andNameLike("%"+keyword+"%");
+        productExample.setOrderByClause("id desc");
+        List result=productMapper.selectByExample(productExample);
+        setFirstProductImage(result);
+        setCategory(result);
+        return result;
+    }
 }

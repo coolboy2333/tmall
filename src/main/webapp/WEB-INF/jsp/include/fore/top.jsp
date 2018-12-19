@@ -9,7 +9,8 @@
          pageEncoding="UTF-8" isELIgnored="false" %>
 <nav class="top">
     <div style="max-width: 1024px" class="top_middle" >
-        <a href="${contextPath}"><span style="color:#C40000;margin:0" class="glyphicon glyphicon-home redColor"></span>天猫首页</a>
+        <%--<a href="${contextPath}"><span style="color:#C40000;margin:0" class="glyphicon glyphicon-home redColor"></span>天猫首页</a>--%>
+            <a href="forehome"><span style="color:#C40000;margin:0" class="glyphicon glyphicon-home redColor"></span>天猫首页</a>
         <span>喵，欢迎来天猫</span>
         <c:if test="${!empty user}">
             <a href="login.jsp">${user.name}</a>
