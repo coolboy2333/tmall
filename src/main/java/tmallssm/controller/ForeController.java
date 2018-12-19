@@ -13,6 +13,7 @@ import tmallssm.pojo.*;
 import tmallssm.service.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -167,6 +168,89 @@ public class ForeController {
         productService.setSaleAndReviewNumber(ps);
         model.addAttribute("ps",ps);
         return "fore/searchResult";
+    }
+
+    @RequestMapping("forebuyone")
+    public String buyone(int pid, int num, HttpSession session) {
+        //立即购买
+        Product p = productService.get(pid);
+        int oiid = 0;
+
+        User user =(User)  session.getAttribute("user");
+        boolean found = false;
+        List<OrderItem> ois = orderItemService.listByUser(user.getId());
+        for (OrderItem oi : ois) {//找订单项中有没有相同的产品
+            if(oi.getProduct().getId().intValue()==p.getId().intValue()){
+                oi.setNumber(oi.getNumber()+num);
+                orderItemService.update(oi);
+                found = true;
+                oiid = oi.getId();
+                break;
+            }
+        }
+
+        if(!found){
+            OrderItem oi = new OrderItem();
+            oi.setUid(user.getId());
+            oi.setNumber(num);
+            oi.setPid(pid);
+            orderItemService.add(oi);
+            oiid = oi.getId();
+        }
+        return "redirect:forebuy?oiid="+oiid;
+    }
+
+    @RequestMapping("forebuy")
+    public String buy( Model model,String[] oiid,HttpSession session){
+        //这里用数组而不是用字符串接收oiid的原因：结算页面需要显示在购物车中选中的多条OrderItem数据，选中的商品才会计算总价
+        List<OrderItem> ois = new ArrayList<>();
+        float total = 0;
+
+        for (String strid : oiid) {
+            int id = Integer.parseInt(strid);
+            OrderItem oi= orderItemService.get(id);
+            total +=oi.getProduct().getPromotePrice()*oi.getNumber();
+            ois.add(oi);
+        }
+
+        session.setAttribute("ois", ois);
+        model.addAttribute("total", total);
+        return "fore/buy";
+    }
+
+    @RequestMapping("foreaddCart")
+    @ResponseBody
+    public String addCart(int pid, int num, Model model,HttpSession session) {
+        Product p = productService.get(pid);
+        User user =(User)  session.getAttribute("user");
+        boolean found = false;
+
+        List<OrderItem> ois = orderItemService.listByUser(user.getId());
+        for (OrderItem oi : ois) {
+            if(oi.getProduct().getId().intValue()==p.getId().intValue()){
+                oi.setNumber(oi.getNumber()+num);
+                orderItemService.update(oi);
+                found = true;
+                break;
+            }
+        }
+
+        if(!found){
+            OrderItem oi = new OrderItem();
+            oi.setUid(user.getId());
+            oi.setNumber(num);
+            oi.setPid(pid);
+            orderItemService.add(oi);
+        }
+        return "success";
+    }
+
+    @RequestMapping("forecart")
+    public String cart( Model model,HttpSession session) {
+        User user =(User)  session.getAttribute("user");
+        List<OrderItem> ois = orderItemService.listByUser(user.getId());//订单项集合
+        model.addAttribute("ois", ois);
+        return "fore/cart";
     }
 
 }

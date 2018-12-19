@@ -36,7 +36,9 @@ public class OrderItemServiceImpl implements OrderItemService {
 
     @Override
     public OrderItem get(int id) {
-        return orderItemMapper.selectByPrimaryKey(id);
+        OrderItem result = orderItemMapper.selectByPrimaryKey(id);
+        setProduct(result);
+        return result;
     }
 
     @Override
@@ -97,6 +99,16 @@ public class OrderItemServiceImpl implements OrderItemService {
         for (OrderItem oi : ois) {
             result += oi.getNumber();
         }
+        return result;
+    }
+
+    @Override
+    public List<OrderItem> listByUser(int uid) {
+        //用户的订单项
+        OrderItemExample example =new OrderItemExample();
+        example.createCriteria().andUidEqualTo(uid).andOidIsNull();
+        List<OrderItem> result =orderItemMapper.selectByExample(example);
+        setProduct(result);
         return result;
     }
 }
