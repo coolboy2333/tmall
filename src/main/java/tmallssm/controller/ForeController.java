@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.util.HtmlUtils;
 import tmallssm.pojo.*;
 import tmallssm.service.*;
@@ -100,5 +101,27 @@ public class ForeController {
         return "fore/product";
     }
 
+    @RequestMapping("forecheckLogin")
+    @ResponseBody
+    public String checkLogin(HttpSession session){
+        User user=(User)session.getAttribute("user");
+
+        if (null!=user)
+            return "success";
+        else
+            return "fail";
+    }
+    @RequestMapping("foreloginAjax")
+    @ResponseBody
+    public String loginAjax(@RequestParam("name") String name,@RequestParam("password") String password,HttpSession session){
+        name = HtmlUtils.htmlEscape(name);
+        User user = userService.get(name,password);
+
+        if(null==user){
+            return "fail";
+        }
+        session.setAttribute("user", user);
+        return "success";
+    }
 
 }
