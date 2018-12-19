@@ -90,6 +90,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public void fill(Category c) {
         List<Product> ps = list(c.getId());
+        setFirstProductImage(ps);//add by YS in 20181219
         c.setProducts(ps);
     }
 
