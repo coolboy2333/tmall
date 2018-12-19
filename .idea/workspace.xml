@@ -8,9 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8f9dcc07-fe40-490d-9dee-f832771b6dac" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/springMVC.xml" afterPath="$PROJECT_DIR$/src/main/resources/springMVC.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/springMVC.xml" afterPath="$PROJECT_DIR$/target/classes/springMVC.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tmall_ssm/WEB-INF/classes/springMVC.xml" afterPath="$PROJECT_DIR$/target/tmall_ssm/WEB-INF/classes/springMVC.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java" afterPath="$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -39,10 +37,22 @@
       <file leaf-file-name="cartPage.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/fore/cart/cartPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state relative-caret-position="290">
+              <caret line="247" column="83" lean-forward="true" selection-start-line="247" selection-start-column="83" selection-end-line="247" selection-end-column="83" />
               <folding>
                 <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ForeController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="280" column="5" lean-forward="true" selection-start-line="280" selection-start-column="5" selection-end-line="280" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,7 +80,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OtherInterceptor.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OtherInterceptor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/tmallssm/interceptor/OtherInterceptor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="286">
@@ -122,16 +132,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="buy.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fore/buy.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="52" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -157,6 +157,9 @@
       <find>setFirstProductImage</find>
       <find>fill</find>
       <find>getProduct</find>
+      <find>forechangeOrderItem</find>
+      <find>foredeleteOrderItem</find>
+      <find>cartProductItemTR</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -215,12 +218,12 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fore/buy.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/fore/cart/buyPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/tmallssm/service/impl/OrderItemServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fore/cart.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/fore/cart/cartPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/interceptor/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/java/tmallssm/interceptor/OtherInterceptor.java" />
         <option value="$PROJECT_DIR$/src/main/resources/springMVC.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java" />
       </list>
     </option>
   </component>
@@ -815,7 +818,7 @@
       <workItem from="1538018628237" duration="6302000" />
       <workItem from="1539186159831" duration="11239000" />
       <workItem from="1542458961437" duration="10516000" />
-      <workItem from="1542899075087" duration="36071000" />
+      <workItem from="1542899075087" duration="37678000" />
     </task>
     <task id="LOCAL-00001" summary="分类管理">
       <created>1532782134680</created>
@@ -957,11 +960,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545224202127</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="增加新的拦截器，用于读取购物车商品总数，显示在右上角">
+      <created>1545224820687</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1545224820687</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214436000" />
+    <option name="totallyTimeSpent" value="216043000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1612" height="876" extended-state="0" />
@@ -1025,7 +1035,8 @@
     <MESSAGE value="实现立即购买的功能" />
     <MESSAGE value="增加查看购物车的功能" />
     <MESSAGE value="增加登录状态拦截器，自动识别无需和必须登录的页面" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加登录状态拦截器，自动识别无需和必须登录的页面" />
+    <MESSAGE value="增加新的拦截器，用于读取购物车商品总数，显示在右上角" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加新的拦截器，用于读取购物车商品总数，显示在右上角" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1420,16 +1431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="253" column="5" lean-forward="true" selection-start-line="253" selection-start-column="5" selection-end-line="253" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/fore/buy.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1451,16 +1452,6 @@
         <state relative-caret-position="154">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="8" selection-end-column="52" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/fore/cart/cartPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1510,6 +1501,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
           <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/include/fore/cart/cartPage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="247" column="83" lean-forward="true" selection-start-line="247" selection-start-column="83" selection-end-line="247" selection-end-column="83" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/tmallssm/controller/ForeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="280" column="5" lean-forward="true" selection-start-line="280" selection-start-column="5" selection-end-line="280" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
