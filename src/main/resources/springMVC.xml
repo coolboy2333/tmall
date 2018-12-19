@@ -38,5 +38,9 @@
             <mvc:mapping path="/fore*"/>
             <bean class="tmallssm.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/fore*"/>
+            <bean class="tmallssm.interceptor.OtherInterceptor"/>
+        </mvc:interceptor>
     </mvc:interceptors>
 </beans>

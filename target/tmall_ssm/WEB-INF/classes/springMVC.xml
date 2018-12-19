@@ -32,4 +32,15 @@
     <!-- 对上传文件的解析-->
     <!--在页面form中提交enctype="multipart/form-data"的数据时，需要springmvc对multipart类型的数据进行解析-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/fore*"/>
+            <bean class="tmallssm.interceptor.LoginInterceptor"/>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/fore*"/>
+            <bean class="tmallssm.interceptor.OtherInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
