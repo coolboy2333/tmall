@@ -1,6 +1,7 @@
 package tmallssm.service;
 
 import tmallssm.pojo.Order;
+import tmallssm.pojo.OrderItem;
 
 import java.util.List;
 
@@ -15,6 +16,9 @@ public interface OrderService {
     Order get(int id);
 
     List<Order> list();
+    List list(int uid, String excludedStatus);
+
+    float add(Order c,List<OrderItem> ois);
 
     String waitPay = "waitPay";
     String waitDelivery = "waitDelivery";

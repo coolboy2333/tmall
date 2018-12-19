@@ -2,6 +2,7 @@ package tmallssm.controller;
 
 import com.github.pagehelper.PageHelper;
 import comparator.*;
+import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,9 +14,11 @@ import tmallssm.pojo.*;
 import tmallssm.service.*;
 
 import javax.servlet.http.HttpSession;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Date;
 
 @Controller
 @RequestMapping("")
@@ -278,6 +281,30 @@ public class ForeController {
             return "fail";
         orderItemService.delete(oiid);
         return "success";
+    }
+
+    @RequestMapping("forecreateOrder")
+    public String createOrder( Model model,Order order,HttpSession session){
+        User user =(User)  session.getAttribute("user");
+        String orderCode = new SimpleDateFormat("yyyyMMddHHmmssSSS").format(new Date()) + RandomUtils.nextInt(10000);
+        order.setOrderCode(orderCode);
+        order.setCreateDate(new Date());
+        order.setUid(user.getId());
+        order.setStatus(OrderService.waitPay);
+        List<OrderItem> ois= (List<OrderItem>)  session.getAttribute("ois");//forebuy中在sesssion中添加了ois
+
+        float total =orderService.add(order,ois);
+        return "redirect:forealipay?oid="+order.getId() +"&total="+total;
+    }
+
+    @RequestMapping("forepayed")
+    public String payed(int oid, float total, Model model) {
+        Order order = orderService.get(oid);
+        order.setStatus(OrderService.waitDelivery);
+        order.setPayDate(new Date());
+        orderService.update(order);
+        model.addAttribute("o", order);
+        return "fore/payed";
     }
 
 }
