@@ -1,6 +1,7 @@
 package tmallssm.mapper;
 
 import java.util.List;
+
 import tmallssm.pojo.PropertyValue;
 import tmallssm.pojo.PropertyValueExample;
 

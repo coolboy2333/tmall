@@ -21,6 +21,7 @@ public class OrderItem {
     public void setProduct(Product product) {
         this.product = product;
     }
+
     /*-----------非数据库字段--------------*/
     public Integer getId() {
         return id;

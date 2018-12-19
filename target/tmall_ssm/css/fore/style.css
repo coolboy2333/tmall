@@ -113,7 +113,8 @@ div.carouselBackgroundDiv{
 
 div.categoryWithCarousel div.headbar {
 	background-color: #DD2727;
-	max-width: 1024px;
+	/*max-width: 1024px;*/
+	width: 1024px;
 	margin: 0px auto;
 }
 

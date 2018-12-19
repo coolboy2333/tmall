@@ -10,7 +10,7 @@ import tmallssm.service.UserService;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
@@ -36,16 +36,16 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> list() {
-        UserExample example=new UserExample();
+        UserExample example = new UserExample();
         example.setOrderByClause("id desc");
         return userMapper.selectByExample(example);
     }
 
     @Override
     public boolean isExist(String name) {
-        UserExample example=new UserExample();
+        UserExample example = new UserExample();
         example.createCriteria().andNameEqualTo(name);
-        List<User> result=userMapper.selectByExample(example);
+        List<User> result = userMapper.selectByExample(example);
         if (!result.isEmpty())
             return true;
         else
@@ -54,10 +54,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User get(String name, String password) {
-        UserExample example =new UserExample();
+        UserExample example = new UserExample();
         example.createCriteria().andNameEqualTo(name).andPasswordEqualTo(password);
-        List<User> result= userMapper.selectByExample(example);
-        if(result.isEmpty())
+        List<User> result = userMapper.selectByExample(example);
+        if (result.isEmpty())
             return null;
         return result.get(0);
     }

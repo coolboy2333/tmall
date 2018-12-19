@@ -24,10 +24,10 @@ public class OrderController {
     OrderItemService orderItemService;
 
     @RequestMapping("admin_order_list")
-    public String list(Model model, Page page){
-        PageHelper.offsetPage(page.getStart(),page.getCount());
+    public String list(Model model, Page page) {
+        PageHelper.offsetPage(page.getStart(), page.getCount());
 
-        List<Order> os= orderService.list();
+        List<Order> os = orderService.list();
 
         int total = (int) new PageInfo<>(os).getTotal();
         page.setTotal(total);
@@ -41,7 +41,7 @@ public class OrderController {
     }
 
     @RequestMapping("admin_order_delivery")
-    public String delivery(Order o)throws IOException{
+    public String delivery(Order o) throws IOException {
         o.setDeliveryDate(new Date());
         o.setStatus(OrderService.waitConfirm);
         orderService.update(o);

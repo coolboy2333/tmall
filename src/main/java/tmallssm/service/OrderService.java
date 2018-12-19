@@ -7,9 +7,13 @@ import java.util.List;
 public interface OrderService {
 
     void add(Order o);
+
     void delete(int id);
+
     void update(Order o);
+
     Order get(int id);
+
     List<Order> list();
 
     String waitPay = "waitPay";

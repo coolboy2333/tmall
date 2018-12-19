@@ -1,8 +1,9 @@
 package tmallssm.mapper;
 
-import java.util.List;
 import tmallssm.pojo.ProductImage;
 import tmallssm.pojo.ProductImageExample;
+
+import java.util.List;
 
 public interface ProductImageMapper {
     int deleteByPrimaryKey(Integer id);

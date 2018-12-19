@@ -3,7 +3,6 @@ package tmallssm.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tmallssm.mapper.ProductImageMapper;
-import tmallssm.pojo.Product;
 import tmallssm.pojo.ProductImage;
 import tmallssm.pojo.ProductImageExample;
 import tmallssm.service.ProductImageService;
@@ -11,7 +10,7 @@ import tmallssm.service.ProductImageService;
 import java.util.List;
 
 @Service
-public class ProductImageServiceImpl implements ProductImageService{
+public class ProductImageServiceImpl implements ProductImageService {
     @Autowired
     ProductImageMapper productImageMapper;
 
@@ -37,7 +36,7 @@ public class ProductImageServiceImpl implements ProductImageService{
 
     @Override
     public List<ProductImage> list(int pid, String type) {
-        ProductImageExample example=new ProductImageExample();
+        ProductImageExample example = new ProductImageExample();
         example.createCriteria().andPidEqualTo(pid).andTypeEqualTo(type);
         example.setOrderByClause("id desc");
         return productImageMapper.selectByExample(example);

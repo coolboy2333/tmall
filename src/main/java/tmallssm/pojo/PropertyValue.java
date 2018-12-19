@@ -18,6 +18,7 @@ public class PropertyValue {
     public void setProperty(Property property) {
         this.property = property;
     }
+
     /*------------非数据库字段---------------*/
     public Integer getId() {
         return id;

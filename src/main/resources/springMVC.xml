@@ -14,13 +14,13 @@
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
+    <!--配置注解映射器和适配器-->
     <mvc:annotation-driven />
 
     <!--开通静态资源的访问-->
     <mvc:default-servlet-handler />
 
-    <!-- 视图定位 -->
+    <!-- 视图解析器 -->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass"
@@ -30,5 +30,6 @@
     </bean>
 
     <!-- 对上传文件的解析-->
+    <!--在页面form中提交enctype="multipart/form-data"的数据时，需要springmvc对multipart类型的数据进行解析-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 </beans>

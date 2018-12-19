@@ -13,6 +13,7 @@ import tmallssm.service.PropertyService;
 import tmallssm.util.Page;
 
 import java.util.List;
+
 @Controller
 @RequestMapping("")
 public class PropertyController {
@@ -22,15 +23,15 @@ public class PropertyController {
     PropertyService propertyService;
 
     @RequestMapping("admin_property_list")
-    public String list(int cid, Model model,  Page page) {
+    public String list(int cid, Model model, Page page) {
         Category c = categoryService.get(cid);
 
-        PageHelper.offsetPage(page.getStart(),page.getCount());
+        PageHelper.offsetPage(page.getStart(), page.getCount());
         List<Property> ps = propertyService.list(cid);
 
         int total = (int) new PageInfo<>(ps).getTotal();
         page.setTotal(total);
-        page.setParam("&cid="+c.getId());
+        page.setParam("&cid=" + c.getId());
 
         model.addAttribute("ps", ps);
         model.addAttribute("c", c);
@@ -40,31 +41,31 @@ public class PropertyController {
     }
 
     @RequestMapping("admin_property_add")
-    public String add(Property p){
+    public String add(Property p) {
         propertyService.add(p);
-        return "redirect:admin_property_list?cid="+p.getCid();
+        return "redirect:admin_property_list?cid=" + p.getCid();
     }
 
     @RequestMapping("admin_property_edit")
-    public String edit(Model model,int id){
-        Property p=propertyService.get(id);
-        Category c=categoryService.get(p.getCid());
+    public String edit(Model model, int id) {
+        Property p = propertyService.get(id);
+        Category c = categoryService.get(p.getCid());
         p.setCategory(c);
-        model.addAttribute("p",p);
+        model.addAttribute("p", p);
         return "admin/editProperty";
     }
 
     @RequestMapping("admin_property_update")
-    public String update(Property p){
+    public String update(Property p) {
         propertyService.update(p);
-        return "redirect:admin_property_list?cid="+p.getCid();
+        return "redirect:admin_property_list?cid=" + p.getCid();
     }
 
     @RequestMapping("admin_property_delete")
-    public String delete(int id){
-        Property p=propertyService.get(id);
+    public String delete(int id) {
+        Property p = propertyService.get(id);
         propertyService.delete(id);
-        return "redirect:admin_property_list?cid="+p.getCid();
+        return "redirect:admin_property_list?cid=" + p.getCid();
     }
 
 }

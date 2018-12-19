@@ -6,10 +6,12 @@
 
   <!-- spring的配置文件-->
   <context-param>
+    <!--指定SpringIoC容器读取Bean定义的XML文件-->
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
   <listener>
+    <!--SpringMVC的启动类，负责完成IoC容器在WEB环境中的启动工作-->
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
 
