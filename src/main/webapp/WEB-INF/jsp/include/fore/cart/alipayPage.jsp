@@ -20,7 +20,7 @@
 
     </div>
     <div>
-        <img class="aliPayImg" src="img/site/alipay2wei.jpg">
+        <img class="aliPayImg" src="img/site/alipay2wei.jpg" width="210px" height="280px">
     </div>
 
     <div>
